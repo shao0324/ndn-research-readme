@@ -1,0 +1,18 @@
+site_name: 結合內容評分與共享機制的命名資料網路快取策略
+nav:
+  - 目錄總攬: index.md
+  - 安裝與環境設定:
+    - 安裝 ndnSIM: ch1.1.md
+    - 程式碼編輯環境: ch1.2.md
+  - 模擬方法與參數: ch2.md
+theme:
+  name: material
+  features:
+    - navigation.tabs
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - footnotes
+  - attr_list
+use_directory_urls: false
