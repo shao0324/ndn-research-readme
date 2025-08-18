@@ -1,27 +1,36 @@
-name: Deploy MkDocs
+name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # 當 main 分支有 push 時觸發
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
+    steps:
+      # Step 1: 檢出程式碼
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: 設定 Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
+      # Step 3: 安裝 MkDocs 及主題
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-material
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs mkdocs-material
 
+      # Step 4: 建構 MkDocs 網站
       - name: Build MkDocs site
         run: mkdocs build --clean
 
+      # Step 5: 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
