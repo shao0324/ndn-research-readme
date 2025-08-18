@@ -1,0 +1,954 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="ch1.2.html">
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>模擬方法與參數 - 結合內容評分與共享機制的命名資料網路快取策略</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="結合內容評分與共享機制的命名資料網路快取策略" class="md-header__button md-logo" aria-label="結合內容評分與共享機制的命名資料網路快取策略" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            結合內容評分與共享機制的命名資料網路快取策略
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              模擬方法與參數
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  目錄總攬
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="ch1.1.html" class="md-tabs__link">
+          
+  
+  
+  安裝與環境設定
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="ch2.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  模擬方法與參數
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="結合內容評分與共享機制的命名資料網路快取策略" class="md-nav__button md-logo" aria-label="結合內容評分與共享機制的命名資料網路快取策略" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    結合內容評分與共享機制的命名資料網路快取策略
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    目錄總攬
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    安裝與環境設定
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            安裝與環境設定
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ch1.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    安裝 ndnSIM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ch1.2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式碼編輯環境
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    模擬方法與參數
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ch2.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    模擬方法與參數
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      說明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="說明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      官方教學
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      模擬
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模擬">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      參數
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="參數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      原有參數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      自訂參數
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自訂參數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      test-config
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      scenario &amp; topology
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scenario &amp; topology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      存放位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-topology_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      scenario 對應的 topology
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      取得 topology
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      錯誤訊息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      說明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="說明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      官方教學
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      模擬
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模擬">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      參數
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="參數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      原有參數
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      自訂參數
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自訂參數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      test-config
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      scenario &amp; topology
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scenario &amp; topology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      存放位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-topology_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      scenario 對應的 topology
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      取得 topology
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      錯誤訊息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">模擬方法與參數</h1>
+<h2 id="_2">說明</h2>
+<p>ndnSIM 以 scenario 設定不同模擬情境，撰寫 scenario 程式碼的基本方法請見官方文件，<font color=red>此處著重介紹如何使用《結合內容評分與共享機制的命名資料網路快取策略》的原始碼進行模擬，以及模擬時常用的設定、自定義的模擬參數</font>。</p>
+<h3 id="_3">官方教學</h3>
+<ul>
+<li><a href="https://ndnsim.net/current/examples.html">https://ndnsim.net/current/examples.html</a></li>
+<li>官方教學使用編譯時產生的範例進行說明。範例位置在 <code>/ndnSIM/ns-3/build/src/ndnSIM/examples</code>。</li>
+</ul>
+<h2 id="_4">模擬</h2>
+<h3 id="_5">參數</h3>
+<h4 id="_6">原有參數</h4>
+<ul>
+<li><code>--run</code>：執行模擬，後面附加 scenario，以下兩種方式都可以。
+<div class="highlight"><pre><span></span><code>./waf --run=ndn-simple
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>./waf --run &quot;ndn-simple&quot;
+</code></pre></div></li>
+<li><code>--vis</code>：開啟 visualizer。
+<div class="highlight"><pre><span></span><code>./waf --run=ndn-simple --vis
+</code></pre></div></li>
+</ul>
+<h4 id="_7">自訂參數</h4>
+<h5 id="_8">指令</h5>
+<ul>
+<li>使用者可以為每個 scenario 自訂參數，目前研究實驗用的 scenario 都在指令中加入了以下參數。</li>
+<li>參數說明：<ul>
+<li><code>--result=1</code>: 不執行模擬，輸出最後一次模擬結果。</li>
+<li><code>--cs-size=x</code>: content store 容量。</li>
+<li><code>--frequency=x</code>: 封包發送頻率。</li>
+<li><code>--s=x</code>: s of Zipf-Mandelbrot。</li>
+<li><code>--q=x</code>: q of Zipf-Mandelbrot。</li>
+<li><code>--content=x</code>: number of contents。</li>
+<li><code>--policy=x</code>: x=lru, lru-vicinity, scoring, scoring-vicinity。</li>
+<li><code>--sim-time=x</code>: 模擬時間。</li>
+</ul>
+</li>
+<li>使用範例：
+<div class="highlight"><pre><span></span><code>./waf --run &quot;test-ndn-testbed --cs-size=20 --sim-time=20.0&quot;
+</code></pre></div></li>
+</ul>
+<h5 id="test-config">test-config</h5>
+<p>使用 <code>test-config.txt</code> 修改模擬設定更方便。
+* 檔案位置：<code>/ndnSIM/ns-3/build/src/ndnSIM/examples/test-config.txt</code>
+* 參數說明：
+    * <code>cs-size</code>: 同<a href="#指令">指令</a>說明。
+    * <code>frequency</code>: 同<a href="#指令">指令</a>說明。
+    * <code>s</code>: 同<a href="#指令">指令</a>說明。
+    * <code>q</code>: 同<a href="#指令">指令</a>說明。
+    * <code>content</code>: 同<a href="#指令">指令</a>說明。
+    * <code>policy</code>: 同<a href="#指令">指令</a>說明。
+    * <code>sim-time</code>: 同<a href="#指令">指令</a>說明。
+    * <code>rand-seed</code>: 只用於 <code>test-ndn-testbed</code>，隨機選擇生產者節點的亂數種子。
+    * <code>producer-num</code>: 只用於 <code>test-ndn-testbed</code>，設定拓樸中的生產者節點數量。
+* 範例：
+<div class="highlight"><pre><span></span><code>cs-size=25
+frequency=10
+s=1.2
+q=0.7
+content=250
+policy=lru
+sim-time=200.0
+rand-seed=1423
+producer-num=5
+</code></pre></div></p>
+<h3 id="scenario-topology">scenario &amp; topology</h3>
+<h4 id="_9">存放位置</h4>
+<p>用於研究模擬實驗的檔案都放在：</p>
+<ul>
+<li>scenario：<code>ndnSIM/ns-3/src/ndnSIM/examples</code></li>
+<li>topology：<code>ndnSIM/ns-3/src/ndnSIM/examples/topologies</code></li>
+</ul>
+<h4 id="scenario-topology_1">scenario 對應的 topology</h4>
+<ul>
+<li><code>test-inline.cpp</code> 搭配 <code>topo-6-node-in-line.txt</code></li>
+</ul>
+<p><img alt="Simple Topology-simple 6 node.drawio" src="images/topology1.png" width="60%" /></p>
+<ul>
+<li><code>test-multi-src.cpp</code> 搭配 <code>topo-3-source.txt</code></li>
+</ul>
+<p><img alt="Simple Topology-multiple source.drawio" src="images/topology2.png" width="60%" /></p>
+<ul>
+<li><code>test-multi-src-dst.cpp</code> 搭配 <code>topo-multi-src-and-dst.txt</code></li>
+</ul>
+<p><img alt="Simple Topology-different distance.drawio" src="images/topology3.png" width="60%" /></p>
+<ul>
+<li><code>test-ndn-testbed.cpp</code> 搭配 <code>topo-ndn-testbed-ndnsim.txt</code></li>
+</ul>
+<p><img alt="NDN Testbed topology from NDN-Play" src="images/topology4.png" width="60%" /></p>
+<h3 id="topology">取得 topology</h3>
+<p>ndnSIM 提供的範例同時包含網路拓樸（topology）檔，但使用文字檔憑空撰寫自己網路拓樸很不現實，可行的方法有三種：</p>
+<ol>
+<li>別人提供的檔案</li>
+<li>ns-3 或 ndnSIM 都能搭配 Brite 產生網路拓樸，此方法須自行研究。</li>
+<li>ndnsim-topology generator 提供的視覺化工具產生網路拓樸。<ul>
+<li>GitHub repository: <a href="https://github.com/SunnyQjm/ndnsim-topology">github.com/SunnyQjm/ndnsim-topology</a></li>
+<li>Website: <a href="https://sunnyqjm.github.io/ndnsim-topology/">sunnyqjm.github.io/ndnsim-topology/</a></li>
+</ul>
+</li>
+</ol>
+<h3 id="_10">錯誤訊息</h3>
+<p>使用 <code>--vis</code> 模擬時看到以下兩行錯誤訊息不用擔心。<code>kiwi.ui</code> 和 <code>icon applets-screenshooter</code> 不影響模擬結果，且通常不會使用 visualizer 查看模擬結果，整體而言沒有影響。</p>
+<div class="highlight"><pre><span></span><code>Could not load plugin &#39;show_last_packets.py&#39;: No module named &#39;kiwi.ui&#39;
+</code></pre></div>
+<ul>
+<li>沒有 <code>kiwi</code> 只會讓 visualizer 缺少一些外掛。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li>無害的警告，可以忽略。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+</ul>
+<div class="highlight"><pre><span></span><code>Could not load icon applets-screenshooter due to missing gnomedesktop Python module
+</code></pre></div>
+<ul>
+<li>只會在 UI 的 title bar 缺少 icon。<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://github.com/named-data-ndnSIM/ndnSIM/issues/105">No module named 'kiwi.ui' · Issue #105 · named-data-ndnSIM/ndnSIM</a>. GitHub.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://groups.google.com/g/ns-3-users/c/vkqPyJmxvYU/m/744RzpPfCQAJ">Could not load plugin 'show_last_packets.py': No module named 'kiwi.ui'</a>. ns-3-users - Google 網路論壇.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.lists.cs.ucla.edu/pipermail/ndnsim/2018-April/004641.html">[ndnSIM] missing gnomedesktop Python module</a>. ndnSIM mailing list.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
