@@ -5,6 +5,9 @@ nav:
     - 安裝 ndnSIM: ch1.1.md
     - 程式碼編輯環境: ch1.2.md
   - 模擬方法與參數: ch2.md
+  - 資料收集:
+    - 如何收集實驗數據: ch3.1.md
+    - Log 使用筆記: ch3.2.md
 theme:
   name: material
   features:
@@ -16,3 +19,8 @@ markdown_extensions:
   - footnotes
   - attr_list
 use_directory_urls: false
+plugins:
+  - git-revision-date-localized:
+      type: datetime
+      locale: zh_TW
+      fallback_to_build_date: true
