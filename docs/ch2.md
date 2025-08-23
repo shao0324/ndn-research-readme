@@ -48,6 +48,7 @@ ndnSIM 以 scenario 設定不同模擬情境，撰寫 scenario 程式碼的基�
 ##### test-config
 
 使用 `test-config.txt` 修改模擬設定更方便。
+
 * 檔案位置：`/ndnSIM/ns-3/build/src/ndnSIM/examples/test-config.txt`
 * 參數說明：
     * `cs-size`: 同[指令](#指令)說明。

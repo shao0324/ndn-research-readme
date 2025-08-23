@@ -18,6 +18,7 @@ ndnSIM
 ```
 
 應該不會動到 ns-3 的原始碼，ns-3 與 ndnSIM 之間也不存在 submodule 關聯。需要處理的是 ndnSIM 目錄中的關聯，<font color=red>從樹狀結構最尾端的 websocketpp 開始向上處理</font>，大概需要移除以下檔案／目錄：
+
 * 必須刪除：
     * `.git`
     * `.gitmodules`
@@ -34,7 +35,8 @@ ndnSIM
 ## 程式編輯器
 
 本篇論文在研究時，<font color=red>主要在 Ubuntu 上使用 Visual Studio Code 編輯程式碼</font>。此處參考下方文章設定 VS Code 以便閱讀、編輯程式碼。<font color=red>編譯部分由 ns-3 的 `waf` 處理</font>。
-* ndnSIM学习（二）——配置VScode的跨文件转到定义 https://blog.csdn.net/MamiyaHasaki/article/details/120582082
+
+* [ndnSIM学习（二）——配置VScode的跨文件转到定义](https://blog.csdn.net/MamiyaHasaki/article/details/120582082)
 
 ### 設定 Go To Definition
 

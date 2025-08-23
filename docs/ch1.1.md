@@ -1,4 +1,4 @@
-# 系統環境與安裝ndnSIM
+# 安裝ndnSIM
 
 ## 系統環境
 
@@ -39,6 +39,7 @@ sudo pip3 install kiwi
 ### 模擬器原始碼
 
 ndnSIM 有三個主要構成：
+
 1. **ns-3**：依 ndnSIM 需求調整的 ns-3 版本，用以驅動模擬器。
 2. **PyBindGen**：可以使用 python 撰寫模擬腳本，以及模擬時產生圖像介面。
 3. **ndnSIM**：使用 ndn-cxx 和 NFD 完成 NDN 行為模擬。```--recursive``` 會自動抓取對應的 ndn-cxx 和 NFD 版本。
