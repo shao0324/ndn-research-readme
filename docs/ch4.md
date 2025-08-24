@@ -1,7 +1,7 @@
 
 ## 說明
 
-在 `ns-3` 目錄中有用來自動執行模擬器 bash 腳本，此腳本在 `ndnSIM/ns-3/src/ndnSIM/examples/analysis` 也保有備份。
+在 `ns-3` 目錄中有用來自動執行模擬器 `autorun` 腳本，此腳本在 `ndnSIM/ns-3/src/ndnSIM/examples/analysis` 也保有備份。
 
 ## bash function
 
