@@ -51,13 +51,13 @@ ndnSIM 以 scenario 設定不同模擬情境，撰寫 scenario 程式碼的基�
 
 * 檔案位置：`/ndnSIM/ns-3/build/src/ndnSIM/examples/test-config.txt`
 * 參數說明：
-    * `cs-size`: 同[指令](#指令)說明。
-    * `frequency`: 同[指令](#指令)說明。
-    * `s`: 同[指令](#指令)說明。
-    * `q`: 同[指令](#指令)說明。
-    * `content`: 同[指令](#指令)說明。
-    * `policy`: 同[指令](#指令)說明。
-    * `sim-time`: 同[指令](#指令)說明。
+    * `cs-size`: 同[指令](#_8)說明。
+    * `frequency`: 同[指令](#_8)說明。
+    * `s`: 同[指令](#_8)說明。
+    * `q`: 同[指令](#_8)說明。
+    * `content`: 同[指令](#_8)說明。
+    * `policy`: 同[指令](#_8)說明。
+    * `sim-time`: 同[指令](#_8)說明。
     * `rand-seed`: 只用於 `test-ndn-testbed`，隨機選擇生產者節點的亂數種子。
     * `producer-num`: 只用於 `test-ndn-testbed`，設定拓樸中的生產者節點數量。
 * 範例：
