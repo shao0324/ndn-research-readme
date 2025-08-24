@@ -9,8 +9,8 @@
       
       
       
+        <link rel="prev" href="ch3.3.html">
       
-        <link rel="next" href="ch1.1.html">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -18,7 +18,7 @@
     
     
       
-        <title>結合內容評分與共享機制的命名資料網路快取策略</title>
+        <title>自動執行腳本 - 結合內容評分與共享機制的命名資料網路快取策略</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              目錄總攬
+              自動執行腳本
             
           </span>
         </div>
@@ -125,10 +125,8 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
+    <li class="md-tabs__item">
       <a href="index.html" class="md-tabs__link">
         
   
@@ -205,8 +203,10 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
+  
+    <li class="md-tabs__item md-tabs__item--active">
       <a href="ch4.html" class="md-tabs__link">
         
   
@@ -257,30 +257,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    目錄總攬
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -291,51 +271,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      說明
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      目錄
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      版面
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -577,10 +512,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="ch4.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    自動執行腳本
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ch4.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -591,6 +546,51 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      說明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bash-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      bash function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -629,18 +629,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#bash-function" class="md-nav__link">
     <span class="md-ellipsis">
-      目錄
+      bash function
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      版面
+      範例
     </span>
   </a>
   
@@ -662,34 +662,46 @@
 
 
 
-  <h1>目錄總攬</h1>
+  <h1>自動執行腳本</h1>
 
 <h2 id="_1">說明</h2>
-<p>這份說明文件是論文《結合內容評分與共享機制的命名資料網路快取策略》的研究環境架設、ndnSIM 模擬器使用說明、修改方式。</p>
-<p>線上版：<a href="https://shao0324.github.io/ndn-research-readme/">https://shao0324.github.io/ndn-research-readme/</a></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>請注意，這份文件只說明本研究對模擬器進行修改後的使用方式。</p>
-</div>
-<h2 id="_2">目錄</h2>
+<p>在 <code>ns-3</code> 目錄中有用來自動執行模擬器 bash 腳本，此腳本在 <code>ndnSIM/ns-3/src/ndnSIM/examples/analysis</code> 也保有備份。</p>
+<h2 id="bash-function">bash function</h2>
 <ul>
-<li><a href="index.html">目錄總攬</a></li>
-<li>安裝與環境設定<ul>
-<li><a href="ch1.1.html">安裝 ndnSIM</a></li>
-<li><a href="ch1.2.html">程式碼編輯環境</a></li>
+<li><code>update_config()</code><ul>
+<li>修改 <code>test-config.txt</code> 以配置實驗參數。</li>
+<li>每兩個參數對應一組實驗參數，例如 <code>update_config "frequency" "10"</code> 表示設定請求頻率為每秒10個封包。</li>
 </ul>
 </li>
-<li><a href="ch2.html">模擬方法與參數</a></li>
-<li>資料收集<ul>
-<li><a href="ch3.1.html">如何收集實驗數據</a></li>
-<li><a href="ch3.2.html">Log 使用筆記</a></li>
-<li><a href="ch3.3.html">現有實驗數據</a></li>
+<li><code>run_waf()</code><ul>
+<li>執行 <code>./waf</code>。</li>
+<li>可以給予參數，如 <code>run_waf "--run=test-inline"</code>。</li>
 </ul>
 </li>
-<li><a href="ch4.html">自動執行腳本</a></li>
+<li><code>output_result()</code><ul>
+<li>呼叫 <code>output</code> bash 腳本，輸出實驗結果。</li>
 </ul>
-<h2 id="_3">版面</h2>
-<p>網頁上方目錄是依主題區分的大章，左側目錄是依功能取分的小節，右側目錄是小節的目錄。</p>
+</li>
+</ul>
+<h2 id="_2">範例</h2>
+<ol>
+<li>設定 Log 輸出規則
+<div class="highlight"><pre><span></span><code>NS_LOG=ndn.Producer:ndn.Consumer
+</code></pre></div></li>
+<li>以 <code>update_config()</code> 設定新實驗的參數配置。
+<div class="highlight"><pre><span></span><code># content store size experiment initial config
+update_config &quot;frequency&quot; &quot;10&quot; &quot;s&quot; &quot;1.2&quot; &quot;content&quot; &quot;250&quot;
+
+# cs-size=20
+update_config &quot;cs-size&quot; &quot;20&quot; &quot;policy&quot; &quot;lru&quot;
+</code></pre></div></li>
+<li>給予 <code>waf</code> 模擬參數。
+<div class="highlight"><pre><span></span><code>run_waf &quot;--run=test-inline&quot;
+</code></pre></div></li>
+<li>設定模擬結果存放檔案名稱。
+<div class="highlight"><pre><span></span><code>output_result &quot;cs20_inline&quot;
+</code></pre></div></li>
+</ol>
 
 
 

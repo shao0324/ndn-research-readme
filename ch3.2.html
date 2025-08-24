@@ -12,6 +12,8 @@
         <link rel="prev" href="ch3.1.html">
       
       
+        <link rel="next" href="ch3.3.html">
+      
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
@@ -198,6 +200,25 @@
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="ch4.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  自動執行腳本
+
+      </a>
+    </li>
   
 
       
@@ -539,13 +560,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用輸出規則設定
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       程式中使用
     </span>
@@ -555,7 +585,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       輸出資訊
     </span>
@@ -586,9 +616,54 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ch3.3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    現有實驗數據
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ch4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    自動執行腳本
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -663,13 +738,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用輸出規則設定
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       程式中使用
     </span>
@@ -679,7 +763,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       輸出資訊
     </span>
@@ -770,27 +854,24 @@
 <li>若只有指定層級，最後輸出的 Log 格式會缺少時間、節點等資訊，使用 Prefix 可以手動設定產生這些資訊。</li>
 <li><code>NS_LOG="*=all|prefix_level"</code> 就會得到輸出層級和訊息的 Log。</li>
 <li>Prefix 選項請參考 ns-3 的 <a href="https://www.nsnam.org/docs/release/3.22/manual/html/logging.html#severity-prefix">Severity Prefix</a>。</li>
-<li>
-<p>結合層級與 Prefix 的範例：
-```!
-// 只輸出 INFO 層級，並輸出所有 Prefix
-NS_LOG=ndn.Producer="info|prefix_all":ndn.ConsumerZipfMandelbrot="info|prefix_all"
-<div class="highlight"><pre><span></span><code>### 常用輸出規則設定
-
-* 指定輸出 Log 的組件，輸出所有 Prefix 以取得時間、節點等資訊，只輸出層級為 Info 的 Log。
-
-```!
-export NS_LOG=ndn.Producer=&quot;info|prefix_all&quot;:ndn.ConsumerZipfMandelbrot=&quot;info|prefix_all&quot;:ndn-cxx.nfd.Forwarder=&quot;info|prefix_all&quot;:ndn-cxx.nfd.ContentStore=&quot;info|prefix_all&quot;:ndn-cxx.nfd.ScoringTable=&quot;info|prefix_all&quot;
-</code></pre></div></p>
-</li>
-<li>
-<p>只有指定輸出 Log 的組件，因此 DEBUG 層級的資訊都會輸出，Log 量較大。</p>
-</li>
+<li>結合層級與 Prefix 的範例：
+<div class="highlight"><pre><span></span><code>// 只輸出 INFO 層級，並輸出所有 Prefix
+NS_LOG=ndn.Producer=&quot;info|prefix_all&quot;:ndn.ConsumerZipfMandelbrot=&quot;info|prefix_all&quot;
+</code></pre></div></li>
 </ul>
-<p><code>!
-export NS_LOG=ndn.Producer:ndn.ConsumerZipfMandelbrot:ndn-cxx.nfd.Forwarder:ndn-cxx.nfd.ContentStore:ndn-cxx.nfd.ScoringTable</code></p>
-<h2 id="_3">程式中使用</h2>
-<h3 id="_4">輸出資訊</h3>
+<h3 id="_3">常用輸出規則設定</h3>
+<ul>
+<li>指定輸出 Log 的組件，輸出所有 Prefix 以取得時間、節點等資訊，只輸出層級為 Info 的 Log。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>export NS_LOG=ndn.Producer=&quot;info|prefix_all&quot;:ndn.ConsumerZipfMandelbrot=&quot;info|prefix_all&quot;:ndn-cxx.nfd.Forwarder=&quot;info|prefix_all&quot;:ndn-cxx.nfd.ContentStore=&quot;info|prefix_all&quot;:ndn-cxx.nfd.ScoringTable=&quot;info|prefix_all&quot;
+</code></pre></div>
+<ul>
+<li>只有指定輸出 Log 的組件，因此 DEBUG 層級的資訊都會輸出，Log 量較大。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>export NS_LOG=ndn.Producer:ndn.ConsumerZipfMandelbrot:ndn-cxx.nfd.Forwarder:ndn-cxx.nfd.ContentStore:ndn-cxx.nfd.ScoringTable
+</code></pre></div>
+<h2 id="_4">程式中使用</h2>
+<h3 id="_5">輸出資訊</h3>
 <ul>
 <li>在程式碼中直接使用 <code>NS_LOG_</code> 或 <code>NFD_LOG_</code> 輸出，<font color=red>在執行模擬器前設定好 <code>NS_LOG=</code> 輸出層級</font>，就會輸出對應 Log 到終端機。<ul>
 <li>例如：<code>NS_LOG_DEBUG("message")</code>、<code>NFD_LOG_DEBUG("message")</code>。</li>
@@ -828,7 +909,7 @@ export NS_LOG=ndn.Producer:ndn.ConsumerZipfMandelbrot:ndn-cxx.nfd.Forwarder:ndn-
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年8月18日 08:15:20 UTC">2025年8月18日 08:15:20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年8月24日 04:09:32 UTC">2025年8月24日 04:09:32</span>
   </span>
 
     
@@ -848,6 +929,12 @@ export NS_LOG=ndn.Producer:ndn.ConsumerZipfMandelbrot:ndn-cxx.nfd.Forwarder:ndn-
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -877,7 +964,7 @@ export NS_LOG=ndn.Producer:ndn.ConsumerZipfMandelbrot:ndn-cxx.nfd.Forwarder:ndn-
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "content.code.copy", "navigation.top"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.50899def.min.js"></script>
