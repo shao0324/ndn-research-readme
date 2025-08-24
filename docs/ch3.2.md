@@ -20,7 +20,7 @@ NS_LOG=* ./waf --run=<scenario name>
 NS_LOG=ndn.Producer:ndn.Consumer ./waf --run=<scenario name>
 ```
 
-* 可以先定義 Log 輸出規則，以後每次執行 ```./waf --run``` 時就不用定義規則。
+* 可以先定義 Log 輸出規則，以後每次執行 `./waf --run` 時就不用定義規則。
 
 ```
 export NS_LOG=ndn.Consumer:ndn.Producer:ndn-cxx.nfd.Forwarder \\ 指定類別
@@ -39,20 +39,20 @@ export NS_LOG=ndn.Consumer:ndn.Producer:ndn-cxx.nfd.Forwarder \\ 指定類別
 
 ### 指定 Log 輸出級別
 
-* ```NS_LOG``` 可以指定輸出的 Log 層級，例如 ```NS_LOG=ndn.Producer="info"``` 表示輸出 ```Producer``` 組件中層級為 ```INFO``` 的 Log。
-    * 只有指定層級可以不使用 ```"``` 包裹 info，但對同個組件有多項指定時必須使用 ```"``` 包裹 token。
-* ```NS_LOG=ndn.Producer="info"``` 與 ```NS_LOG=ndn.Producer="level_info"``` 意義不同。
-    * ```NS_LOG=ndn.Producer="info"```：只輸出 ```INFO``` 層級。
-    * ```NS_LOG=ndn.Producer="level_info"```：輸出 ```INFO``` 及其上層級。
+* `NS_LOG` 可以指定輸出的 Log 層級，例如 `NS_LOG=ndn.Producer="info"` 表示輸出 `Producer` 組件中層級為 `INFO` 的 Log。
+    * 只有指定層級可以不使用 `"` 包裹 info，但對同個組件有多項指定時必須使用 `"` 包裹 token。
+* `NS_LOG=ndn.Producer="info"` 與 `NS_LOG=ndn.Producer="level_info"` 意義不同。
+    * `NS_LOG=ndn.Producer="info"`：只輸出 `INFO` 層級。
+    * `NS_LOG=ndn.Producer="level_info"`：輸出 `INFO` 及其上層級。
 * Log 層級請參考 ns-3 的 [Severity and Level Options](https://www.nsnam.org/docs/release/3.22/manual/html/logging.html#severity-and-level-options)。
 
 ### 指定 Log 輸出格式
 
 * 若只有指定層級，最後輸出的 Log 格式會缺少時間、節點等資訊，使用 Prefix 可以手動設定產生這些資訊。
-* ```NS_LOG="*=all|prefix_level"``` 就會得到輸出層級和訊息的 Log。
+* `NS_LOG="*=all|prefix_level"` 就會得到輸出層級和訊息的 Log。
 * Prefix 選項請參考 ns-3 的 [Severity Prefix](https://www.nsnam.org/docs/release/3.22/manual/html/logging.html#severity-prefix)。
 * 結合層級與 Prefix 的範例：
-```!
+```
 // 只輸出 INFO 層級，並輸出所有 Prefix
 NS_LOG=ndn.Producer="info|prefix_all":ndn.ConsumerZipfMandelbrot="info|prefix_all"
 ```
@@ -61,13 +61,13 @@ NS_LOG=ndn.Producer="info|prefix_all":ndn.ConsumerZipfMandelbrot="info|prefix_al
 
 * 指定輸出 Log 的組件，輸出所有 Prefix 以取得時間、節點等資訊，只輸出層級為 Info 的 Log。
 
-```!
+```
 export NS_LOG=ndn.Producer="info|prefix_all":ndn.ConsumerZipfMandelbrot="info|prefix_all":ndn-cxx.nfd.Forwarder="info|prefix_all":ndn-cxx.nfd.ContentStore="info|prefix_all":ndn-cxx.nfd.ScoringTable="info|prefix_all"
 ```
 
 * 只有指定輸出 Log 的組件，因此 DEBUG 層級的資訊都會輸出，Log 量較大。
 
-```!
+```
 export NS_LOG=ndn.Producer:ndn.ConsumerZipfMandelbrot:ndn-cxx.nfd.Forwarder:ndn-cxx.nfd.ContentStore:ndn-cxx.nfd.ScoringTable
 ```
 

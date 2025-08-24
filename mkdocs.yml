@@ -8,11 +8,14 @@ nav:
   - 資料收集:
     - 如何收集實驗數據: ch3.1.md
     - Log 使用筆記: ch3.2.md
+    - 現有實驗數據: ch3.3.md
+  - 自動執行腳本: ch4.md
 theme:
   name: material
   features:
     - navigation.tabs
     - content.code.copy
+    - navigation.top  # Back to top
 markdown_extensions:
   - admonition
   - pymdownx.details
